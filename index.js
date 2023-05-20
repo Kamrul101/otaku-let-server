@@ -38,6 +38,13 @@ async function run() {
       const result = await toyCollection.findOne(query);
       res.send(result);
     })
+    app.get('/toys', async(req,res)=>{
+      console.log(req.query);
+      const result = await toyCollection.find(query).toArray();
+      res.send(result);
+  })
+
+
 
     app.post('/toys',async(req,res)=>{
         const newToy = req.body;
